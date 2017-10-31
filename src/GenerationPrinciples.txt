@@ -1,0 +1,25 @@
+Principes et étapes de la génération procédurale façon Binding of Isaac :
+
+-Tableau à 2 dimensions de 9x6 représentant l'ensemble des positions de salles possible
+
+-2 nombres aléatoires permettent de sélectionner les salles qu'on stockera dans une liste des salles jouables
+
+Algorithme de génération du plan de salles:
+
+	START-		1ere salle = salle de départ de la génération
+	2-			on stock la salle dans la liste des salles jouables 
+	3-			On tire au hasard une salle de la liste des salles jouables
+						-On teste les bords du terrain et s'il reste des directions possible
+						-Sinon on recommence à l'étape 3
+	4-			Un nombre aléatoire permet de sélectionner la position de la salle suivante (haut, gauche, bas, droite)
+	5-			On ajoute une porte dans la direction tiré dans la salle, et une porte dans la direction inverse dans la nouvelle salle
+	6-			on stock la salle dans la liste des salles jouables 
+
+	END-		On recommence à partir de l'étape 3 autant de fois que nécessaire.
+
+
+-Données d'une salle :
+id : numéro identifiant de la salle
+position : X et Y de la salle dans le tableau représentant l'ensemble des positions de salles possible
+liste des portes : liste des portes présentes dans la salle
+liste des directions : liste des directions encore disponible pour cette salle
